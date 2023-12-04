@@ -1,0 +1,80 @@
+@import "styles/mixins";
+
+.Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--bs-radius-medium);
+  border: none;
+  color: var(--bs-white);
+
+  &.Primary {
+    background-color: var(--bs-primary);
+    padding: 15px 25px;
+    border-radius: var(--bs-radius-extra-large);
+    font-weight: var(--bs-font-weight-medium);
+    font-size: var(--bs-font-extra-large);
+    transition: var(--bs-transition-medium);
+
+    &:hover {
+      @include boxShadow();
+    }
+
+    &:active {
+      background-color: var(--bs-primary);
+    }
+
+    &:focus-visible {
+      @include boxShadow();
+    }
+  }
+
+  &.Secondary {
+    background-color: var(--bs-dark);
+    padding: 10px 20px;
+    padding: 15px 25px;
+    border-radius: var(--bs-radius-extra-large);
+    font-weight: var(--bs-font-weight-medium);
+    font-size: var(--bs-font-extra-large);
+    transition: var(--bs-transition-medium);
+
+    &:hover {
+      @include boxShadow();
+    }
+
+    &:active {
+      background-color: var(--bs-dark);
+    }
+
+    &:focus-visible {
+      @include boxShadow();
+    }
+  }
+
+  &.OutlineBorder {
+    color: var(--bs-dark);
+    background-color: var(--bs-white);
+    border: 1px solid var(--bs-dark);
+    padding: 10px 20px;
+    padding: 15px 25px;
+    border-radius: var(--bs-radius-extra-large);
+    font-weight: var(--bs-font-weight-medium);
+    font-size: var(--bs-font-extra-large);
+    transition: var(--bs-transition-medium);
+
+    &:hover {
+      color: var(--bs-secondary-alt);
+      border: 1px solid var(--bs-secondary-alt);
+      @include boxShadow();
+    }
+
+    &:active {
+      border: 1px solid var(--bs-secondary-alt);
+      background-color: var(--bs-white);
+    }
+
+    &:focus-visible {
+      @include boxShadow();
+    }
+  }
+}

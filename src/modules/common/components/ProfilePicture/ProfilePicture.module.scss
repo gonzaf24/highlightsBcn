@@ -1,0 +1,37 @@
+@import "styles/mixins";
+
+.ProfilePicture {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 58px;
+  height: 58px;
+  object-fit: cover;
+  transition: var(--bs-transition-medium-in);
+  @include border-radius(100%);
+  cursor: pointer;
+
+  img {
+    object-fit: cover;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--bs-focused-secondary) !important;
+  }
+
+  &.UseHover:hover::after {
+    transition: var(--bs-transition-medium);
+    border: 1px solid transparent !important;
+  }
+
+  &.Active {
+    transition: var(--bs-transition-medium);
+    border: 1px solid var(--bs-primary) !important;
+  }
+
+  &.Disabled {
+    cursor: not-allowed;
+  }
+}

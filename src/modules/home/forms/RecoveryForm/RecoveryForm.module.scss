@@ -1,0 +1,35 @@
+@import "src/styles/mixins";
+
+.RecoveryForm {
+  .InputsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .Input {
+      max-width: 634px;
+    }
+  }
+
+  .Button {
+    align-self: flex-end;
+    width: fit-content;
+  }
+
+  .LoginText {
+    font-size: var(--bs-font-large);
+    font-weight: var(--bs-font-weight-light);
+    color: var(--bs-dark);
+    text-decoration: underline;
+    width: fit-content;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 1px solid var(--bs-secondary-alt);
+    }
+
+    .Bold {
+      font-weight: var(--bs-font-weight-semi-bold);
+    }
+  }
+}

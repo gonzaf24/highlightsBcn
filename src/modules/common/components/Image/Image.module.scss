@@ -1,0 +1,32 @@
+@import "styles/mixins";
+
+.Image {
+  height: 44px;
+  width: 44px;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  @include border-radius(var(--bs-radius-medium));
+
+  .FigureImage {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: transparent;
+    margin: 0px;
+    @include border-radius(inherit);
+  }
+
+  .Invalid {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include border-radius(inherit);
+  }
+}

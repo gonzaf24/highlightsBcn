@@ -1,0 +1,65 @@
+@import "styles/mixins";
+
+.UserMenu {
+  position: relative;
+
+  .ProfilePicture {
+    width: 40px;
+    height: 40px;
+
+    &:hover {
+      @include boxShadow();
+    }
+
+    &:focus-visible {
+      @include boxShadow();
+    }
+  }
+
+  .Menu {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+
+    .Button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      white-space: nowrap;
+      font-weight: var(--bs-font-weight-light);
+      font-size: var(--bs-font-medium);
+      border-radius: var(--bs-radius-large);
+      border: 1px solid var(--bs-secondary-alt-hover);
+      background: var(--bs-white);
+      cursor: pointer;
+
+      &:hover {
+        @include boxShadow();
+      }
+
+      &:focus-visible {
+        @include boxShadow();
+      }
+
+      .Title {
+        font-size: var(--bs-font-medium);
+        font-weight: var(--bs-font-weight-medium);
+        color: var(--bs-dark);
+      }
+    }
+  }
+
+  .IsOpen {
+    display: flex;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 1;
+    -webkit-animation: fade-in-fwd 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    animation: fade-in-fwd 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  }
+}

@@ -1,0 +1,70 @@
+@import "src/styles/mixins";
+
+$header-height: 40px;
+$header-zIndex: 10;
+
+.AppHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  z-index: $header-zIndex;
+  height: $header-height;
+
+  @include desktop {
+    margin-top: 20px;
+  }
+
+  .LeftContaienr {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+
+    .Wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      color: var(--bs-primary);
+      font-size: 18px;
+      font-weight: var(--bs-font-weight-bold);
+      line-height: 20px;
+      letter-spacing: 1px;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .MapLogo {
+      height: 40px;
+      max-width: 30px;
+      width: unset;
+      cursor: pointer;
+    }
+  }
+
+  .RightContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+
+    .LoginText {
+      color: var(--bs-dark);
+      text-decoration: none;
+      font-weight: var(--bs-font-weight-medium);
+      font-size: var(--bs-font-medium);
+      transition: var(--bs-transition-medium);
+
+      &:hover {
+        @include textShadow();
+      }
+
+      &:focus-visible {
+        @include textShadow();
+      }
+    }
+  }
+}

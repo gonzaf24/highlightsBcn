@@ -1,0 +1,133 @@
+/* Mobile */
+$small-mobile-min-width: 0px;
+$small-mobile-max-width: 320px;
+$big-mobile-min-width: 321px;
+$big-mobile-max-width: 430px;
+/* Tablet */
+$small-tablet-min-width: 431px;
+$small-tablet-max-width: 744px;
+$big-tablet-min-width: 745px;
+$big-tablet-max-width: 990px;
+/* Desktop */
+$small-desktop-min-width: 991px;
+$small-desktop-max-width: 1920px;
+$big-desktop-min-width: 1921px;
+/* Heights */
+$small-height: 599px;
+$medium-height-min: 600px;
+$medium-height-max: 899px;
+$large-height: 900px;
+
+@mixin small-mobile {
+  @media (min-width: $small-mobile-min-width) and (max-width: $small-mobile-max-width) {
+    @content;
+  }
+}
+
+@mixin big-mobile {
+  @media (min-width: $big-mobile-min-width) and (max-width: $big-mobile-max-width) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (min-width: $small-mobile-min-width) and (max-width: $big-mobile-max-width) {
+    @content;
+  }
+}
+
+@mixin small-tablet {
+  @media (min-width: $small-tablet-min-width) and (max-width: $small-tablet-max-width) {
+    @content;
+  }
+}
+
+@mixin big-tablet {
+  @media (min-width: $big-tablet-min-width) and (max-width: $big-tablet-max-width) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $small-tablet-min-width) and (max-width: $big-tablet-max-width) {
+    @content;
+  }
+}
+
+@mixin small-desktop {
+  @media (min-width: $small-desktop-min-width) and (max-width: $small-desktop-max-width) {
+    @content;
+  }
+}
+
+@mixin big-desktop {
+  @media (min-width: $big-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $small-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin devices($keys...) {
+  @each $key in $keys {
+    @if $key == small-mobile {
+      @include small-mobile {
+        @content;
+      }
+    } @else if $key == big-mobile {
+      @include big-mobile {
+        @content;
+      }
+    } @else if $key == mobile {
+      @include mobile {
+        @content;
+      }
+    } @else if $key == small-tablet {
+      @include small-tablet {
+        @content;
+      }
+    } @else if $key == big-tablet {
+      @include big-tablet {
+        @content;
+      }
+    } @else if $key == tablet {
+      @include tablet {
+        @content;
+      }
+    } @else if $key == small-desktop {
+      @include small-desktop {
+        @content;
+      }
+    } @else if $key == big-desktop {
+      @include big-desktop {
+        @content;
+      }
+    } @else if $key == desktop {
+      @include desktop {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin small-height {
+  @media (max-height: $small-height) {
+    @content;
+  }
+}
+
+@mixin medium-height {
+  @media (min-height: $medium-height-min) and (max-height: $medium-height-max) {
+    @content;
+  }
+}
+
+@mixin large-height {
+  @media (min-height: $large-height) {
+    @content;
+  }
+}

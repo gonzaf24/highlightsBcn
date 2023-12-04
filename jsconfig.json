@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "baseUrl": "./src",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "incremental": true
+  },
+  "include": [
+    "**/*.js",
+    "**/*.jsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist"
+  ],
+  "paths": {
+    "app/*": [
+      "./app/*"
+    ],
+    "assets/*": [
+      "./assets/*"
+    ],
+    "base/*": [
+      "./base/*"
+    ],
+    "modules/*": [
+      "./modules/*"
+    ],
+    "utils/*": [
+      "./utils/*"
+    ],
+    "tests/*": [
+      "./tests/*"
+    ],
+    "styles/*": [
+      "./styles/*"
+    ]
+  }
+}

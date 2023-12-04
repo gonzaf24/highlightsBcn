@@ -1,0 +1,54 @@
+@import "styles/mixins";
+
+.InputText {
+  .Label {
+    font-size: var(--bs-font-large);
+    font-weight: var(--bs-font-weight-medium);
+    color: var(--bs-secondary-alt);
+    padding-left: 30px;
+  }
+
+  .Input {
+    font-size: var(--bs-font-large);
+    font-weight: var(--bs-font-weight-medium);
+    color: var(--bs-dark);
+    background-color: var(--bs-white);
+    border-radius: var(--bs-radius-extra-extra-large);
+    border: 1px solid var(--bs-gray-light);
+    padding-left: 30px;
+    height: 56px;
+
+    &:focus {
+      @include boxShadow;
+    }
+
+    &:not(:focus) {
+      box-shadow: none !important;
+    }
+
+    &:disabled {
+      background-color: var(--bs-primary-disabled) !important;
+      cursor: not-allowed !important;
+    }
+  }
+
+  .LabelError {
+    color: var(--bs-danger);
+  }
+
+  .InputError {
+    border: 1px solid var(--bs-danger);
+  }
+
+  .ErrorText {
+    padding-left: 30px;
+    color: var(--bs-danger);
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    transition-delay: 9999s;
+    transition-property: background-color, color;
+  }
+}

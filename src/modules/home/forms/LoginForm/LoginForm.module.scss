@@ -1,0 +1,58 @@
+@import "src/styles/mixins";
+
+.LoginForm {
+  .InputsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .Input {
+      max-width: 634px;
+    }
+  }
+
+  .Wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Error {
+    color: var(--bs-danger);
+  }
+
+  .Button {
+    align-self: flex-end;
+    width: fit-content;
+  }
+
+  .SignUpText {
+    font-size: var(--bs-font-large);
+    font-weight: var(--bs-font-weight-light);
+    color: var(--bs-dark);
+    text-decoration: underline;
+    width: fit-content;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 1px solid var(--bs-secondary-alt);
+    }
+
+    .Bold {
+      font-weight: var(--bs-font-weight-semi-bold);
+    }
+  }
+
+  .ForgotPassword {
+    font-size: var(--bs-font-large);
+    font-weight: var(--bs-font-weight-medium);
+    color: var(--bs-dark);
+    text-decoration: underline;
+    text-wrap: nowrap;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 1px solid var(--bs-secondary-alt);
+    }
+  }
+}

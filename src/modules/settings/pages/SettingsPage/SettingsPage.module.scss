@@ -1,0 +1,16 @@
+@import "styles/mixins";
+
+.SettingsPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 25px;
+
+  .Title {
+    font-size: var(--bs-font-large);
+    font-weight: var(--bs-font-weight-medium);
+    color: var(--bs-secondary-alt);
+  }
+}

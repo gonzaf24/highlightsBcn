@@ -1,0 +1,61 @@
+@import "src/styles/mixins";
+
+.RegisterForm {
+  .InputsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .Input {
+      max-width: 634px;
+    }
+  }
+
+  .Wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    .AcceptTermsCheckbox {
+      span {
+        font-size: var(--bs-font-medium);
+      }
+    }
+
+    .AcceptTermsLink {
+      font-size: var(--bs-font-medium);
+      font-weight: var(--bs-font-weight-light);
+      color: var(--bs-primary);
+      text-decoration: none;
+      overflow: hidden;
+      cursor: pointer;
+
+      &:focus-visible {
+        outline: 1px solid var(--bs-primary);
+      }
+    }
+  }
+
+  .Button {
+    align-self: flex-end;
+    width: fit-content;
+  }
+
+  .LoginText {
+    font-size: var(--bs-font-large);
+    font-weight: var(--bs-font-weight-light);
+    color: var(--bs-dark);
+    text-decoration: underline;
+    width: fit-content;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 1px solid var(--bs-secondary-alt);
+    }
+
+    .Bold {
+      font-weight: var(--bs-font-weight-semi-bold);
+    }
+  }
+}

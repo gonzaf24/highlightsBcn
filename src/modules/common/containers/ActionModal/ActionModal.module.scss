@@ -1,0 +1,58 @@
+@import "src/styles/mixins";
+
+.ActionModal {
+  @include modal-padding(30px);
+
+  .Wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+
+    .Button {
+      width: 100%;
+      border-radius: var(--bs-radius-medium);
+      border: 0px;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 16px;
+      flex-grow: 0;
+      padding: 10px 24px;
+      height: 44px;
+
+      &:hover {
+        transition: 0.25s ease-in-out;
+        color: var(--bs-white);
+      }
+    }
+  }
+
+  .RejectButton {
+    background-color: var(--bs-white-5);
+    color: var(--bs-white-80);
+
+    &:hover {
+      background-color: var(--bs-white-5);
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: var(--bs-focused-secondary) !important;
+    }
+  }
+
+  .AcceptButton {
+    background-color: var(--bs-danger);
+    color: var(--bs-white-80);
+
+    &:hover {
+      background-color: var(--bs-danger);
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 1px var(--bs-danger) !important;
+    }
+  }
+}

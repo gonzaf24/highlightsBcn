@@ -1,0 +1,52 @@
+@import "styles/mixins";
+
+.AppSidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 25px;
+  padding-top: 10px;
+
+  .LinkWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+
+    &:focus-visible {
+      outline: var(--bs-secondary-alt) auto 1px;
+    }
+
+    .IconWrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 35px;
+      height: 35px;
+    }
+
+    .Title {
+      color: var(--bs-dark);
+      font-weight: var(--bs-font-weight-light);
+      font-size: var(--bs-font-extra-large);
+    }
+
+    &.ActiveLink {
+      &:focus-visible {
+        outline: var(--bs-primary) auto 1px;
+      }
+
+      .Title {
+        color: var(--bs-primary);
+        font-weight: var(--bs-font-weight-medium);
+        font-size: var(--bs-font-extra-large);
+      }
+
+      .Icon {
+        fill: var(--bs-primary);
+      }
+    }
+  }
+}

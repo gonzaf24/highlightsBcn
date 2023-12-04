@@ -1,0 +1,126 @@
+@charset "UTF-8";
+/*!
+
+=========================================================
+* HighlightsBcn Dashboard - v1.0.0
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+*/
+:root {
+  --bs-font-poppins: "Poppins", sans-serif;
+  --bs-body-font-family: var(--bs-font-poppins);
+
+  --bs-white: #ffffff;
+  --bs-primary: #e83b68;
+  --bs-primary-5: #ff4a940d;
+  --bs-primary-hover: #ff97c1;
+  --bs-primary-disabled: #f84a9417;
+  --bs-secondary: #ff97c1;
+  --bs-secondary-alt: #7a7a7a;
+  --bs-secondary-alt-hover: #7a7a7a27;
+  --bs-dark: #231f21;
+  --bs-dark-hover: #231f219a;
+  --bs-gray-dark: #939393;
+  --bs-gray-light: #e6e6e6;
+  --bs-danger: #fe2020;
+
+  --bs-title-color: var(--bs-secondary);
+  --bs-subtitle-color: var(--bs-secondary-alt);
+
+  --bs-font-weight-light: 300;
+  --bs-font-weight-medium: 500;
+  --bs-font-weight-semi-bold: 600;
+  --bs-font-weight-bold: 700;
+  --bs-font-weight-extra-bold: 800;
+  --bs-font-weight-bold: 900;
+
+  --bs-body-font-weight: var(--bs-font-weight-light);
+  --bs-body-line-height: 1.5;
+
+  --bs-transition-medium: 0.25s ease-in-out;
+  --bs-transition-medium-in: 0.25s ease-in;
+  --bs-transition-medium-out: 0.25s ease-out;
+  --bs-transition-large: 0.5s ease-in-out;
+  --bs-transition-large-in: 0.5s ease-in;
+  --bs-transition-large-out: 0.5s ease-out;
+  --bs-focused-primary: 0 0 0 1px var(--bs-primary);
+  --bs-focused-secondary: 0 0 0 1px var(--bs-white-20);
+
+  --bs-radius-small: 6px;
+  --bs-radius-medium: 8px;
+  --bs-radius-medium-large: 10px;
+  --bs-radius-medium-extra-large: 16px;
+  --bs-radius-large: 20px;
+  --bs-radius-extra-large: 43px;
+  --bs-radius-extra-extra-large: 65px;
+
+  --bs-font-extra-small: 8px;
+  --bs-font-small: 10px;
+  --bs-font-medium: 12px;
+  --bs-font-medium-large: 14px;
+  --bs-font-large: 16px;
+  --bs-font-extra-large: 18px;
+  --bs-font-extra-large-medium: 26px;
+  --bs-font-extra-extra-large: 28px;
+
+  --bs-background-success: #078518a1;
+  --bs-background-warning: #ff9800;
+  --bs-background-danger: #521313;
+  --bs-success-rgb: 64, 181, 116;
+  --bs-warning-rgb: 255, 193, 7;
+  --bs-danger-rgb: 178, 64, 97;
+
+  --bs-gray-100: #f8f9fa;
+  --bs-gray-200: #e9ecef;
+  --bs-gray-300: #dee2e6;
+  --bs-gray-400: #ced4da;
+  --bs-gray-500: #adb5bd;
+  --bs-gray-600: #6c757d;
+  --bs-gray-700: #495057;
+  --bs-gray-800: #242326;
+  --bs-gray-900: #1f1c27;
+  --bs-white-5: #ffffff0d;
+  --bs-white-10: #ffffff1a;
+  --bs-white-15: #ffffff26;
+  --bs-white-20: #ffffff33;
+  --bs-white-25: #ffffff40;
+  --bs-white-30: #ffffff4d;
+  --bs-white-40: #ffffff66;
+  --bs-white-50: #ffffff80;
+  --bs-white-60: #ffffff99;
+  --bs-white-70: #ffffffb3;
+  --bs-white-80: #ffffffcc;
+  --bs-white-90: #ffffffe6;
+  --bs-white-100: #ffffff;
+}
+
+body {
+  font-family: var(--bs-body-font-family);
+  font-size: var(--bs-font-medium);
+  font-weight: var(--bs-font-weight-light);
+  margin: 0px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+/* body {
+  margin: 0;
+  font-family: var(--bs-body-font-family);
+  font-size: var(--bs-body-font-size);
+  font-weight: var(--bs-body-font-weight);
+  line-height: var(--bs-body-line-height);
+  color: var(--bs-body-color);
+  text-align: var(--bs-body-text-align);
+  background-color: var(--bs-body-bg);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow: hidden;
+  font-feature-settings: "lnum" 1;
+}
+ */

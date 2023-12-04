@@ -1,0 +1,78 @@
+@import "styles/mixins";
+
+.SettingsForm {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .Container {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 30px;
+
+    .ContainerWrapper {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 20px;
+
+      .Input {
+        width: 100%;
+      }
+    }
+
+    .ContainerRightWrapper {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+
+      .Wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 11px;
+
+        .InputWrapper {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+
+      .TwoFactorLabel {
+        font-size: var(--bs-font-large);
+        font-weight: var(--bs-font-weight-medium);
+        color: var(--bs-secondary-alt);
+        padding-left: 30px;
+        margin-bottom: 8px;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .Info {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 10px;
+    margin-left: 30px;
+    margin-top: 5px;
+
+    .InfoText {
+      font-size: var(--bs-font-medium);
+      font-weight: var(--bs-font-weight-light);
+      color: var(--bs-secondary-alt);
+    }
+  }
+
+  .ButtonWrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+  }
+}
