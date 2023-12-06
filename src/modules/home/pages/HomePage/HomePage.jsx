@@ -33,7 +33,6 @@ const HomePage = ({ className, dataTestId, id }) => {
 
   return (
     <div className={ homePageClassNames } data-testid={ dataTestId } id={ id }>
-      <h1>{t('home.title')}</h1>
       <MenuItems items={ homeMenu } />
     </div>
   );

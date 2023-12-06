@@ -31,7 +31,7 @@ const RumbaFlamencoPage = ({ className, dataTestId, id }) => {
       data-testid={ dataTestId }
       id={ id }
     >
-      <MenuItems backPath={ routes.bar.path } title={ t(entertainmentRoutes.rumbaFlamenco.title) } useGoHome />
+      <MenuItems backPath={ routes.entertainment.path } title={ t(entertainmentRoutes.rumbaFlamenco.title) } useGoHome />
     </div>
   );
 };

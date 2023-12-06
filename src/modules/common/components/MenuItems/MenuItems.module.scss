@@ -13,6 +13,11 @@
     align-items: center;
     width: 100%;
 
+    @include devices(mobile, small-tablet) {
+      justify-content: flex-start;
+      flex-direction: column;
+    }
+
     .Wrapper {
       display: flex;
       justify-content: flex-start;
