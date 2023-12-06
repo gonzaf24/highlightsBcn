@@ -45,10 +45,6 @@
         "destination": "/index.html"
       },
       {
-        "source": "/entertainment/rumbaFlamenco",
-        "destination": "/index.html"
-      },
-      {
         "source": "/entertainment/touristAttractions",
         "destination": "/index.html"
       },
