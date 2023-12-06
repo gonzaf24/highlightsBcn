@@ -7,11 +7,9 @@ import { EtnicalPage, FoodPage, TapasPage } from 'modules/food/pages';
 import { HomePage, LoginPage, RecoveryPage, RegisterPage } from 'modules/home/pages';
 import { MapLocationsPage } from 'modules/mapLocations/pages';
 import { SettingsPage } from 'modules/settings/pages';
-import { TopsPage } from 'modules/tops/pages';
-import BuffetsPage from 'modules/tops/pages/BuffetsPage';
-import BurgersPage from 'modules/tops/pages/BurgersPage';
-import DesignPage from 'modules/tops/pages/DesignPage';
-import TacosPage from 'modules/tops/pages/TacosPage';
+import {
+  BuffetsPage, BurgersPage, DesignPage, TacosPage, TopsPage,
+} from 'modules/tops/pages';
 
 const paths = {
   login: '/login',

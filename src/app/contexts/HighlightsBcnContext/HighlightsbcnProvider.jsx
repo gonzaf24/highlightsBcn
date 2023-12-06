@@ -2,7 +2,7 @@
 
 import React, { useMemo } from 'react';
 import { I18nextProvider } from 'react-i18next';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { createI118nInstance } from '../../../utils/translations';
