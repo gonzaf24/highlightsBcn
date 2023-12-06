@@ -20,22 +20,14 @@ const defaultProps = {
   id: undefined,
 };
 
-const texts = {
-  MenuFood: 'HomePage.Menu.Food',
-  MenuBar: 'HomePage.Menu.Bar',
-  MenuEntretainment: 'HomePage.Menu.Entretainment',
-  MenuTops: 'HomePage.Menu.Tops',
-  MenuMapLocations: 'HomePage.Menu.MapLocations',
-};
-
 const HomePage = ({ className, dataTestId, id }) => {
   const { t } = useHomeTranslation();
 
-  const homeMenu = useMemo(() => [{ id: 0, name: t(texts.MenuFood), path: routes.food.path },
-    { id: 1, name: t(texts.MenuBar), path: routes.bar.path },
-    { id: 2, name: t(texts.MenuEntretainment), path: routes.entretainment.path },
-    { id: 3, name: t(texts.MenuTops), path: routes.tops.path },
-    { id: 4, name: t(texts.MenuMapLocations), path: routes.mapLocations.path }], [t]);
+  const homeMenu = useMemo(() => [{ id: 0, name: t(routes.food.title), path: routes.food.path },
+    { id: 1, name: t(routes.bar.title), path: routes.bar.path },
+    { id: 2, name: t(routes.entertainment.title), path: routes.entertainment.path },
+    { id: 3, name: t(routes.tops.title), path: routes.tops.path },
+    { id: 4, name: t(routes.mapLocations.title), path: routes.mapLocations.path }], [t]);
 
   const homePageClassNames = classnames(styles.HomePage, className);
 

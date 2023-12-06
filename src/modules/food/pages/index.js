@@ -1,3 +1,5 @@
+import EtnicalPage from './EtnicalPage';
 import FoodPage from './FoodPage';
+import TapasPage from './TapasPage';
 
-export { FoodPage };
+export { EtnicalPage, FoodPage, TapasPage };

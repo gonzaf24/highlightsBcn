@@ -1,0 +1,11 @@
+@import "styles/mixins";
+
+.TooltipOverlay {
+  .Overlay {
+    position: absolute;
+    background-color: rgba(255, 100, 100, 0.85);
+    padding: 2px 10px;
+    color: white;
+    border-radius: 3;
+  }
+}

@@ -42,12 +42,6 @@ const translations = {
   'RecoveryForm.Send': 'Send',
   'RecoveryForm.Login': 'Login',
   'RecoveryForm.LoginText': 'Already having an account?',
-  'HomePage.Menu.Food': 'Food',
-  'HomePage.Menu.Bar': 'Bar',
-  'HomePage.Menu.Entretainment': 'Entretainment',
-  'HomePage.Menu.Tops': 'Tops',
-  'HomePage.Menu.MapLocations': 'Map Locations',
-
 };
 
 export default translations;

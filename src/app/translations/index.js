@@ -4,9 +4,9 @@ import appES from 'app/translations/es';
 import barModuleConfig from 'modules/bar/config';
 import barEN from 'modules/bar/translations/en';
 import barES from 'modules/bar/translations/es';
-import entretainmentModuleConfig from 'modules/entretainment/config';
-import entretainmentEN from 'modules/entretainment/translations/en';
-import entretainmentES from 'modules/entretainment/translations/es';
+import entertainmentModuleConfig from 'modules/entertainment/config';
+import entertainmentEN from 'modules/entertainment/translations/en';
+import entertainmentES from 'modules/entertainment/translations/es';
 import foodModuleConfig from 'modules/food/config';
 import foodEN from 'modules/food/translations/en';
 import foodES from 'modules/food/translations/es';
@@ -32,7 +32,7 @@ const translations = {
     [settingsModuleConfig.key]: settingsEs,
     [foodModuleConfig.key]: foodES,
     [barModuleConfig.key]: barES,
-    [entretainmentModuleConfig.key]: entretainmentES,
+    [entertainmentModuleConfig.key]: entertainmentES,
     [topsModuleConfig.key]: topsES,
     [mapLocationsModuleConfig.key]: mapLocationsES,
   },
@@ -42,7 +42,7 @@ const translations = {
     [settingsModuleConfig.key]: settingsEn,
     [foodModuleConfig.key]: foodEN,
     [barModuleConfig.key]: barEN,
-    [entretainmentModuleConfig.key]: entretainmentEN,
+    [entertainmentModuleConfig.key]: entertainmentEN,
     [topsModuleConfig.key]: topsEN,
     [mapLocationsModuleConfig.key]: mapLocationsEN,
   },

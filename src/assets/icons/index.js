@@ -1,7 +1,7 @@
 import { ReactComponent as Add } from './add.svg';
 import { ReactComponent as AddCreatorIcon } from './add-creator-icon.svg';
 import { ReactComponent as AgentsIcon } from './agents-icon.svg';
-import { ReactComponent as GoBackIcon } from './back-arrow.svg';
+import { ReactComponent as GoBackIcon } from './back-arrow-icon.svg';
 import { ReactComponent as TickCheckboxIcon } from './checkbox-tick-icon.svg';
 import { ReactComponent as CloseIcon } from './close-icon.svg';
 import { ReactComponent as CreatorsIcon } from './creators-icon.svg';
@@ -13,6 +13,7 @@ import { ReactComponent as EyeIcon } from './eye-icon.svg';
 import { ReactComponent as FilledPinkCircle } from './filled-pink-circle-icon.svg';
 import { ReactComponent as GreyCircle } from './grey-circle-icon.svg';
 import { ReactComponent as HighlightsBcnLogo } from './highlightsbcn-logo.svg';
+import { ReactComponent as HomeIcon } from './home-icon.svg';
 import { ReactComponent as InfoIcon } from './info-icon.svg';
 import { ReactComponent as LogoutIcon } from './logout-icon.svg';
 import { ReactComponent as PinkCircle } from './pink-circle-icon.svg';
@@ -37,6 +38,7 @@ export {
   GoBackIcon,
   GreyCircle,
   HighlightsBcnLogo,
+  HomeIcon,
   InfoIcon,
   LogoutIcon,
   PinkCircle,

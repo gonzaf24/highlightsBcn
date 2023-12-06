@@ -1,5 +1,5 @@
-import useFoodTranslation from './useTopsTranslation';
+import useTopsTranslation from './useTopsTranslation';
 
 export {
-  useFoodTranslation,
+  useTopsTranslation,
 };

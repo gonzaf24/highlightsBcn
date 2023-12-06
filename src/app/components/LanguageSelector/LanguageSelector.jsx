@@ -5,8 +5,9 @@ import PropTypes from 'prop-types';
 import languageConfig from 'app/config/language';
 import { useOpenToggle, useTranslations } from 'app/hooks';
 import useClickOutside from 'app/hooks/useClickOutside';
-import { EnglandFlagIcon, SpainFlagIcon, TickIcon } from 'assets/icons';
-import { Button } from 'modules/common/components';
+import { TickIcon } from 'assets/icons';
+import { EnglandFlagImage, SpainFlagImage } from 'assets/images';
+import { Button, Image } from 'modules/common/components';
 
 import styles from './LanguageSelector.module.scss';
 
@@ -48,11 +49,11 @@ const LanguageSelector = ({ className, dataTestId, id }) => {
 
   useClickOutside(menuLangRef, closeMenu);
 
-  const FlagIcon = useMemo(() => {
+  const flagImageSrc = useMemo(() => {
     if (language === languageConfig.LANGUAGE.EN.key) {
-      return EnglandFlagIcon;
+      return EnglandFlagImage;
     }
-    return SpainFlagIcon;
+    return SpainFlagImage;
   }, [language]);
 
   const menuClassNames = classnames(styles.Menu, {
@@ -72,7 +73,7 @@ const LanguageSelector = ({ className, dataTestId, id }) => {
       id={ id }
     >
       <button className={ styles.Button } type="button" onClick={ onButtonLanguageClick }>
-        <FlagIcon />
+        <Image className={ styles.LanguageImage } src={ flagImageSrc } />
         <p className={ styles.Name }>{language.toUpperCase()}</p>
       </button>
       <div className={ menuClassNames }>

@@ -7,6 +7,7 @@ import ProfilePicture from './ProfilePicture';
 import RoundCheckbox from './RoundCheckbox';
 import StepperInfo from './StepperInfo';
 import Switch from './Switch';
+import TooltipOverlay from './TooltipOverlay';
 
 export {
   Button,
@@ -18,4 +19,5 @@ export {
   RoundCheckbox,
   StepperInfo,
   Switch,
+  TooltipOverlay,
 };

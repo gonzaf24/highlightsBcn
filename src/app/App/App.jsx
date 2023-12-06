@@ -14,7 +14,7 @@ import '../../styles/theme.scss';
 import styles from './App.module.scss';
 
 const DEFAULT_ROUTE = config.routing.commonRoutes.home;
-const ROUTES = Object.values(config.routing.routes);
+const ROUTES = Object.values(config.routing.publicValidRoutes);
 const propTypes = {
 };
 

@@ -2,9 +2,9 @@ import React, { useMemo } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-import { routes } from 'app/config/routing';
+import { foodRoutes, routes } from 'app/config/routing';
 import { MenuItems } from 'modules/common/components';
-import { useHomeTranslation } from 'modules/home/hooks';
+import { useFoodTranslation } from 'modules/food/hooks';
 
 import styles from './FoodPage.module.scss';
 
@@ -20,24 +20,19 @@ const defaultProps = {
   id: undefined,
 };
 
-const texts = {
-  EtnicalFood: 'FoodPage.Menu.EtnicalFood',
-  TapasFood: 'FoodPage.Menu.TapasFood',
-};
-
 const FoodPage = ({ className, dataTestId, id }) => {
-  const { t } = useHomeTranslation();
+  const { t } = useFoodTranslation();
 
   const foodMenu = useMemo(() => [
-    { id: 0, name: t(texts.EtnicalFood), path: routes.home.path },
-    { id: 1, name: t(texts.TapasFood), path: routes.home.path },
+    { id: 0, name: t(foodRoutes.etnical.title), path: foodRoutes.etnical.path },
+    { id: 1, name: t(foodRoutes.tapas.title), path: foodRoutes.tapas.path },
   ], [t]);
 
   const foodPageClassNames = classnames(styles.FoodPage, className);
 
   return (
     <div className={ foodPageClassNames } data-testid={ dataTestId } id={ id }>
-      <MenuItems items={ foodMenu } />
+      <MenuItems backPath={ routes.home.path } items={ foodMenu } title={ t(routes.food.title) } />
     </div>
   );
 };

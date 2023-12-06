@@ -2,6 +2,10 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
+import { routes } from 'app/config/routing';
+import { MenuItems } from 'modules/common/components';
+import { useMapLocationsTranslation } from 'modules/mapLocations/hooks';
+
 import styles from './MapLocationsPage.module.scss';
 
 const propTypes = {
@@ -17,6 +21,8 @@ const defaultProps = {
 };
 
 const MapLocationsPage = ({ className, dataTestId, id }) => {
+  const { t } = useMapLocationsTranslation();
+
   const mapLocationsPageClassNames = classnames(
     styles.MapLocationsPage,
     className,
@@ -28,7 +34,7 @@ const MapLocationsPage = ({ className, dataTestId, id }) => {
       data-testid={ dataTestId }
       id={ id }
     >
-      MapLocationsPage component
+      <MenuItems backPath={ routes.home.path } title={ t(routes.mapLocations.title) } />
     </div>
   );
 };

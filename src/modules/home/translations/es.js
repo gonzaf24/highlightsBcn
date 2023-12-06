@@ -40,11 +40,6 @@ const translations = {
   'RecoveryForm.Email.Required': 'El email es requerido.',
   'RecoveryForm.Email.Error': 'El email no es válido.',
   'RecoveryForm.Send': 'Enviar',
-  'HomePage.Menu.Food': 'Comida',
-  'HomePage.Menu.Bar': 'Bar',
-  'HomePage.Menu.Entretainment': 'Entretenimiento',
-  'HomePage.Menu.Tops': 'Tops',
-  'HomePage.Menu.MapLocations': 'Locaciones en mapa',
 };
 
 export default translations;
