@@ -67,6 +67,10 @@
       {
         "source": "/tops/tacos",
         "destination": "/index.html"
+      },
+      { 
+        "source": "/(.*)",
+        "destination": "/index.html" 
       }
     ]
   }
