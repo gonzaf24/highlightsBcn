@@ -8,6 +8,10 @@
   padding-top: 80px;
   height: 100%;
 
+  @include devices(mobile, small-tablet) {
+    padding-top: 40px;
+  }
+
   .Wrapper {
     display: flex;
     flex-direction: column;
