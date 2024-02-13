@@ -9,12 +9,14 @@
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
+    width: inherit;
+    height: inherit;
 
     & input[type="checkbox"] {
       position: absolute;
       opacity: 0;
-      width: 24px;
-      height: 24px;
+      width: inherit;
+      height: inherit;
       margin: 0;
       z-index: 2;
       cursor: pointer;
@@ -25,8 +27,8 @@
 
       & + label {
         display: inline-block;
-        width: 24px;
-        height: 24px;
+        width: inherit;
+        height: inherit;
         border-radius: 50%;
         border: 2px solid var(--bs-primary);
         position: relative;
