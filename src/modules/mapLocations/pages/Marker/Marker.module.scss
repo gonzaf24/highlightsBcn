@@ -1,0 +1,23 @@
+@import "styles/mixins";
+
+.Marker {
+  .MarkerIcon {
+    width: 15px;
+    height: 15px;
+
+    &:hover {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  .Zoomed {
+    width: 35px;
+    height: 35px;
+
+    &:hover {
+      width: 45px;
+      height: 45px;
+    }
+  }
+}

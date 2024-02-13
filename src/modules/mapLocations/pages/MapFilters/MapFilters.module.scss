@@ -1,0 +1,27 @@
+@import "styles/mixins";
+
+.MapFilters {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+
+  .Wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+
+    .Icon {
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+    }
+
+    .Checkbox {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}
