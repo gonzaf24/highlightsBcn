@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom';
 import classnames from 'classnames';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import GoogleMapReact from 'google-map-react';
@@ -199,6 +200,15 @@ const MapLocationsPage = ({ className, dataTestId, id }) => {
           Name:
           { selectedMarker?.name }
         </p>
+        <Link
+          target="_blank"
+          to={ {
+            pathname: 'https://maps.google.com',
+            state: { external: true },
+          } }
+        >
+          abrir en Google Maps App
+        </Link>
       </div>
     </div>
   );
