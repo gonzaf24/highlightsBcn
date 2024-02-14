@@ -66,6 +66,31 @@ const MapLocationsPage = ({ className, dataTestId, id }) => {
     options: {
       maxZoom: 18,
       minZoom: 13,
+      disableDefaultUI: true,
+      clickableIcons: false,
+      styles: [
+        {
+          featureType: 'transit.station',
+          elementType: 'labels.icon',
+          stylers: [
+            { visibility: 'off' },
+          ],
+        },
+        {
+          featureType: 'transit.line',
+          elementType: 'geometry.fill',
+          stylers: [
+            { visibility: 'off' },
+          ],
+        },
+        {
+          featureType: 'poi',
+          elementType: 'labels.icon',
+          stylers: [
+            { visibility: 'off' },
+          ],
+        },
+      ],
     },
   };
 
@@ -184,6 +209,7 @@ const MapLocationsPage = ({ className, dataTestId, id }) => {
         // onChildClick={ onChildClick }
         onChildMouseEnter={ onChildMouseEnter }
         onChildMouseLeave={ onChildMouseLeave }
+
       >
         {markersDataOut}
         <Marker Icon={ IAmHereIcon } lat={ lat } lng={ lng } />
