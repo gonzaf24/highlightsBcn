@@ -89,7 +89,6 @@ const MapFilters = ({
           onChange={ handleCat1Change }
         />
       </div>
-
       <div className={ styles.Wrapper }>
         <BurguerIcon className={ styles.Icon } />
         <RoundCheckbox

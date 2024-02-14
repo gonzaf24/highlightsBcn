@@ -11,6 +11,27 @@
     padding-top: 5px;
     height: 90%;
   }
+
+  .Overlay {
+    border: 2px solid var(--bs-primary);
+    padding: 20px;
+    position: absolute;
+    bottom: 40px;
+    right: 30px;
+    background: whitesmoke;
+    display: none;
+
+    .Close {
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+    }
+  }
+
+  .IsOpen {
+    display: block;
+  }
 }
 
 .LanguageImage {

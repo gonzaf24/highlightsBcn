@@ -6,8 +6,9 @@ import GoogleMapReact from 'google-map-react';
 import PropTypes from 'prop-types';
 
 import { routes } from 'app/config/routing';
-import { IAmHereIcon } from 'assets/icons';
-import { MenuItems } from 'modules/common/components';
+import { useOpenToggle } from 'app/hooks';
+import { CloseIcon, IAmHereIcon } from 'assets/icons';
+import { Button, MenuItems } from 'modules/common/components';
 import { useMapLocationsTranslation } from 'modules/mapLocations/hooks';
 
 import MapFilters from '../MapFilters';
@@ -32,6 +33,12 @@ const defaultProps = {
 const MapLocationsPage = ({ className, dataTestId, id }) => {
   const { t } = useMapLocationsTranslation();
   const [zoomSize, setZoomSize] = useState(11); // Estado para almacenar el zoom actual
+  const [selectedMarker, setSelectedMarker] = useState(null); // Estado para almacenar el marcador seleccionado
+  const {
+    isOpen: isOpenMarker,
+    open: openMarker,
+    close: closeMarker,
+  } = useOpenToggle(false);
 
   const [filterStates, setFilterStates] = useState({
     cat0: true,
@@ -69,8 +76,10 @@ const MapLocationsPage = ({ className, dataTestId, id }) => {
     setZoomSize(zoom);
   };
 
-  const onChildClick = (key, childProps) => {
-    console.log('click', key, childProps);
+  const onChildClick = markerData => {
+    console.log('markerData : ', markerData);
+    setSelectedMarker(markerData);
+    openMarker();
   };
 
   const onChildMouseEnter = (/* key, childProps */) => {
@@ -102,7 +111,6 @@ const MapLocationsPage = ({ className, dataTestId, id }) => {
       navigator.permissions
         .query({ name: 'geolocation' })
         .then(result => {
-          console.log(result);
           if (result.state === 'granted') {
             // If granted then you can directly call your function here
             navigator.geolocation.getCurrentPosition(success, errors, options);
@@ -119,7 +127,6 @@ const MapLocationsPage = ({ className, dataTestId, id }) => {
   }, [options, success]);
 
   const markersDataOut = useMemo(() => {
-    console.log('markersDataOut', markersData);
     const filteredMarkers = markersData.filter(marker => {
       // Filtramos los marcadores según el estado de los filtros
       if (filterStates.cat0 && marker.cat === 0) {
@@ -136,7 +143,6 @@ const MapLocationsPage = ({ className, dataTestId, id }) => {
       }
       return false;
     });
-    console.log('filteredMarkers', filteredMarkers);
 
     // Mapeamos los marcadores filtrados
     return filteredMarkers.map(marker => (
@@ -148,9 +154,12 @@ const MapLocationsPage = ({ className, dataTestId, id }) => {
         lng={ marker.lng }
         name={ marker.name }
         zoom={ zoomSize }
+        onChildClick={ onChildClick }
       />
     ));
   }, [markersData, zoomSize, filterStates]);
+
+  const overlayClassNames = classnames(styles.Overlay, { [styles.IsOpen]: isOpenMarker });
 
   const mapLocationsPageClassNames = classnames(
     styles.MapLocationsPage,
@@ -171,13 +180,26 @@ const MapLocationsPage = ({ className, dataTestId, id }) => {
         defaultZoom={ defaultPropss.zoom }
         options={ defaultPropss.options }
         onBoundsChange={ onBoundsChange }
-        onChildClick={ onChildClick }
+        // onChildClick={ onChildClick }
         onChildMouseEnter={ onChildMouseEnter }
         onChildMouseLeave={ onChildMouseLeave }
       >
         {markersDataOut}
         <Marker Icon={ IAmHereIcon } lat={ lat } lng={ lng } />
       </GoogleMapReact>
+      <div className={ overlayClassNames }>
+        <Button className={ styles.Close } isPrimary onClick={ () => closeMarker() }>
+          <CloseIcon />
+        </Button>
+        <p>
+          Id:
+          { selectedMarker?.id }
+        </p>
+        <p>
+          Name:
+          { selectedMarker?.name }
+        </p>
+      </div>
     </div>
   );
 };

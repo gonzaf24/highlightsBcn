@@ -1,6 +1,11 @@
 @import "styles/mixins";
 
 .Marker {
+  min-width: 15px;
+  min-height: 15px;
+  color: var(--bs-primary);
+  font-weight: 900;
+
   .MarkerIcon {
     width: 15px;
     height: 15px;

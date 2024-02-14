@@ -13,6 +13,7 @@ const propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   zoom: PropTypes.number,
+  onChildClick: PropTypes.func,
 };
 
 const defaultProps = {
@@ -22,13 +23,18 @@ const defaultProps = {
   Icon: AvocadoIcon,
   name: '',
   zoom: undefined,
+  onChildClick: () => {},
 };
 
 const maxZoom = 15;
 
 const Marker = ({
-  className, dataTestId, id, Icon, name, zoom,
+  className, dataTestId, id, Icon, name, zoom, onChildClick,
 }) => {
+  const onIconMarkerClick = () => {
+    onChildClick({ id, name });
+    console.log('Marker clicked');
+  };
   const inconsMarkersClassNames = classnames(styles.MarkerIcon, { [styles.Zoomed]: zoom > maxZoom });
   const markerClassNames = classnames(styles.Marker, className);
 
@@ -39,7 +45,7 @@ const Marker = ({
       data-testid={ dataTestId }
       id={ id }
     >
-      <Icon className={ inconsMarkersClassNames } />
+      <Icon className={ inconsMarkersClassNames } onClick={ onIconMarkerClick } />
       { name && <p>{ name }</p>}
     </div>
   );
