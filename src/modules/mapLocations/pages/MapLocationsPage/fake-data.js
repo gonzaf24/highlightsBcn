@@ -1,5 +1,5 @@
 import {
-  AvocadoIcon, BeachIcon, BurguerIcon, SushiIcon,
+  AvocadoIcon, BarIcon, BeachIcon, BurguerIcon, SushiIcon,
 } from 'assets/icons';
 
 const markersData = [
@@ -10,6 +10,7 @@ const markersData = [
     name: 'Barceloneta Beach',
     id: '0',
     cat: 0,
+    googleMapsLink: 'https://maps.app.goo.gl/pKDhbMqoaP9DRhyf9',
   },
   {
     Icon: BeachIcon,
@@ -18,6 +19,7 @@ const markersData = [
     name: 'San Sebastián Beach',
     id: '1',
     cat: 0,
+    googleMapsLink: 'https://maps.app.goo.gl/pKDhbMqoaP9DRhyf9',
   },
   {
     Icon: BeachIcon,
@@ -26,6 +28,7 @@ const markersData = [
     name: 'Bogatell Beach',
     id: '2',
     cat: 0,
+    googleMapsLink: 'https://maps.app.goo.gl/pKDhbMqoaP9DRhyf9',
   },
   {
     Icon: AvocadoIcon,
@@ -34,15 +37,9 @@ const markersData = [
     name: 'Veggie Garden',
     id: '3',
     cat: 1,
+    googleMapsLink: 'https://maps.app.goo.gl/pKDhbMqoaP9DRhyf9',
   },
-  {
-    Icon: BurguerIcon,
-    lat: 41.38879,
-    lng: 2.165,
-    name: 'Burguer King',
-    id: '4',
-    cat: 2,
-  },
+
   {
     Icon: BurguerIcon,
     lat: 41.38879,
@@ -50,6 +47,7 @@ const markersData = [
     name: 'McDonalds',
     id: '5',
     cat: 2,
+    googleMapsLink: 'https://maps.app.goo.gl/pKDhbMqoaP9DRhyf9',
   },
   {
     Icon: SushiIcon,
@@ -58,6 +56,7 @@ const markersData = [
     name: 'Sushi Bar',
     id: '6',
     cat: 3,
+    googleMapsLink: 'https://maps.app.goo.gl/pKDhbMqoaP9DRhyf9',
   },
   {
     Icon: SushiIcon,
@@ -66,6 +65,16 @@ const markersData = [
     name: 'Sushi Loco',
     id: '7',
     cat: 3,
+    googleMapsLink: 'https://maps.app.goo.gl/pKDhbMqoaP9DRhyf9',
+  },
+  {
+    Icon: BarIcon,
+    lat: 41.379596732750514,
+    lng: 2.1909283557768733,
+    name: 'Bar Leo',
+    id: '8',
+    cat: 4,
+    googleMapsLink: 'https://maps.app.goo.gl/pKDhbMqoaP9DRhyf9',
   },
 ];
 

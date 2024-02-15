@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 
 import { AvocadoIcon } from 'assets/icons';
 
-import styles from './Marker.module.scss';
+import styles from './MapMarker.module.scss';
 
 const propTypes = {
   className: PropTypes.string,
   dataTestId: PropTypes.string,
+  googleMapsLink: PropTypes.string,
   Icon: PropTypes.elementType,
   id: PropTypes.string,
   name: PropTypes.string,
@@ -24,24 +25,24 @@ const defaultProps = {
   name: '',
   zoom: undefined,
   onChildClick: () => {},
+  googleMapsLink: '',
 };
 
 const maxZoom = 15;
 
-const Marker = ({
-  className, dataTestId, id, Icon, name, zoom, onChildClick,
+const MapMarker = ({
+  className, dataTestId, id, Icon, name, zoom, onChildClick, googleMapsLink,
 }) => {
   const onIconMarkerClick = () => {
-    onChildClick({ id, name });
-    console.log('Marker clicked');
+    onChildClick({ id, name, googleMapsLink });
   };
   const inconsMarkersClassNames = classnames(styles.MarkerIcon, { [styles.Zoomed]: zoom > maxZoom });
-  const markerClassNames = classnames(styles.Marker, className);
+  const mapMarkerClassNames = classnames(styles.MapMarker, className);
 
   return (
     <div
       key={ id }
-      className={ markerClassNames }
+      className={ mapMarkerClassNames }
       data-testid={ dataTestId }
       id={ id }
     >
@@ -51,7 +52,7 @@ const Marker = ({
   );
 };
 
-Marker.propTypes = propTypes;
-Marker.defaultProps = defaultProps;
+MapMarker.propTypes = propTypes;
+MapMarker.defaultProps = defaultProps;
 
-export default Marker;
+export default MapMarker;

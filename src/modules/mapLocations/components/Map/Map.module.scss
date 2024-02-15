@@ -1,0 +1,28 @@
+@import "styles/mixins";
+
+.Map {
+  width: 100%;
+  height: 100%;
+
+  @include devices(mobile, small-tablet) {
+    height: 90%;
+  }
+
+  .Container {
+    width: 100%;
+    height: 100%;
+    max-height: 400px;
+    position: relative;
+
+    .MyLocation {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 1;
+      width: 35px;
+      height: 35px;
+      font-size: 7px;
+      padding: 5px;
+    }
+  }
+}
