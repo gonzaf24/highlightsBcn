@@ -1,8 +1,8 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, {
+  useCallback, useEffect, useMemo, useState,
+} from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
 import classnames from 'classnames';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import GoogleMapReact from 'google-map-react';
 import PropTypes from 'prop-types';
 
@@ -31,10 +31,62 @@ const defaultProps = {
   id: undefined,
 };
 
+const options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0,
+};
+
+const barcelonaBounds = {
+  north: 41.465, // Latitud máxima
+  south: 41.307, // Latitud mínima
+  east: 2.229, // Longitud máxima
+  west: 2.034, // Longitud mínima
+};
+
+const defaultMapProps = {
+  center: {
+    lat: 41.38879,
+    lng: 2.15899,
+  },
+  zoom: 13,
+  options: {
+    maxZoom: 18,
+    minZoom: 13,
+    disableDefaultUI: true,
+    clickableIcons: false,
+    styles: [
+      {
+        featureType: 'transit.station',
+        elementType: 'labels.icon',
+        stylers: [
+          { visibility: 'off' },
+        ],
+      },
+      {
+        featureType: 'transit.line',
+        elementType: 'geometry.fill',
+        stylers: [
+          { visibility: 'off' },
+        ],
+      },
+      {
+        featureType: 'poi',
+        elementType: 'labels.icon',
+        stylers: [
+          { visibility: 'off' },
+        ],
+      },
+    ],
+  },
+};
+
 const MapLocationsPage = ({ className, dataTestId, id }) => {
   const { t } = useMapLocationsTranslation();
   const [zoomSize, setZoomSize] = useState(11); // Estado para almacenar el zoom actual
   const [selectedMarker, setSelectedMarker] = useState(null); // Estado para almacenar el marcador seleccionado
+  const [centerA, setCenterA] = useState({ lat: 41.38879, lng: 2.15899 }); // Coordenadas iniciales
+
   const {
     isOpen: isOpenMarker,
     open: openMarker,
@@ -57,49 +109,12 @@ const MapLocationsPage = ({ className, dataTestId, id }) => {
     }));
   };
 
-  const defaultPropss = {
-    center: {
-      lat: 41.38879,
-      lng: 2.15899,
-    },
-    zoom: 13,
-    options: {
-      maxZoom: 18,
-      minZoom: 13,
-      disableDefaultUI: true,
-      clickableIcons: false,
-      styles: [
-        {
-          featureType: 'transit.station',
-          elementType: 'labels.icon',
-          stylers: [
-            { visibility: 'off' },
-          ],
-        },
-        {
-          featureType: 'transit.line',
-          elementType: 'geometry.fill',
-          stylers: [
-            { visibility: 'off' },
-          ],
-        },
-        {
-          featureType: 'poi',
-          elementType: 'labels.icon',
-          stylers: [
-            { visibility: 'off' },
-          ],
-        },
-      ],
-    },
-  };
-
   const [lat, setLat] = useState(0);
   const [lng, setLng] = useState(0);
 
-  const onBoundsChange = (center, zoom) => {
-    // console.log('bounds', center, zoom);
+  const onPosChange = ({ center, zoom }) => {
     setZoomSize(zoom);
+    setCenterA(center);
   };
 
   const onChildClick = markerData => {
@@ -116,17 +131,11 @@ const MapLocationsPage = ({ className, dataTestId, id }) => {
     // console.log('leave');
   };
 
-  const options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0,
-  };
-
   const success = useCallback(pos => {
     const crd = pos.coords;
     setLat(crd.latitude);
     setLng(crd.longitude);
-  }, [setLat, setLng]);
+  }, []);
 
   const errors = err => {
     console.warn(`ERROR(${err.code}): ${err.message}`);
@@ -150,7 +159,7 @@ const MapLocationsPage = ({ className, dataTestId, id }) => {
     } else {
       console.log('Geolocation is not supported by this browser.');
     }
-  }, [options, success]);
+  }, [success]);
 
   const markersDataOut = useMemo(() => {
     const filteredMarkers = markersData.filter(marker => {
@@ -183,7 +192,23 @@ const MapLocationsPage = ({ className, dataTestId, id }) => {
         onChildClick={ onChildClick }
       />
     ));
-  }, [markersData, zoomSize, filterStates]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filterStates.cat0, filterStates.cat1, filterStates.cat2, filterStates.cat3, zoomSize]);
+
+  const isLocationInBarcelona = (latA, lngA, bounds) => {
+    const withinLatBounds = latA >= bounds.south && latA <= bounds.north;
+    const withinLngBounds = lngA >= bounds.west && lngA <= bounds.east;
+    return withinLatBounds && withinLngBounds;
+  };
+
+  const isInBarcelona = useMemo(() => isLocationInBarcelona(lat, lng, barcelonaBounds), [lat, lng]);
+
+  const handleCenterMapOnMyLocation = () => {
+    if (isInBarcelona) {
+      setCenterA({ lat, lng });
+      console.log('isLocationInBarcelona - truee ');
+    }
+  };
 
   const overlayClassNames = classnames(styles.Overlay, { [styles.IsOpen]: isOpenMarker });
 
@@ -200,16 +225,18 @@ const MapLocationsPage = ({ className, dataTestId, id }) => {
     >
       <MenuItems backPath={ routes.home.path } title={ t(routes.mapLocations.title) } />
       <MapFilters onFilterChange={ handleFilterChange } />
+      <Button className={ styles.MyLocation } isDisabled={ !isInBarcelona } isPrimary onClick={ handleCenterMapOnMyLocation }>
+        centrar en mi ubicación
+      </Button>
       <GoogleMapReact
         bootstrapURLKeys={ { key: process.env.REACT_APP_MAPS_KEY } }
-        defaultCenter={ defaultPropss.center }
-        defaultZoom={ defaultPropss.zoom }
-        options={ defaultPropss.options }
-        onBoundsChange={ onBoundsChange }
-        // onChildClick={ onChildClick }
+        center={ centerA }
+        defaultCenter={ centerA }
+        defaultZoom={ defaultMapProps.zoom }
+        options={ defaultMapProps.options }
+        onChange={ onPosChange }
         onChildMouseEnter={ onChildMouseEnter }
         onChildMouseLeave={ onChildMouseLeave }
-
       >
         {markersDataOut}
         <Marker Icon={ IAmHereIcon } lat={ lat } lng={ lng } />
