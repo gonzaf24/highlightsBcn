@@ -3,6 +3,7 @@ import { ReactComponent as AddCreatorIcon } from './add-creator-icon.svg';
 import { ReactComponent as AgentsIcon } from './agents-icon.svg';
 import { ReactComponent as AvocadoIcon } from './avocado_color.svg';
 import { ReactComponent as GoBackIcon } from './back-arrow-icon.svg';
+import { ReactComponent as BarIcon } from './bar_color.svg';
 import { ReactComponent as BeachIcon } from './beach_color.svg';
 import { ReactComponent as TickCheckboxIcon } from './checkbox-tick-icon.svg';
 import { ReactComponent as CloseIcon } from './close-icon.svg';
@@ -33,6 +34,7 @@ export {
   AddCreatorIcon,
   AgentsIcon,
   AvocadoIcon,
+  BarIcon,
   BeachIcon,
   BurguerIcon,
   CloseIcon,

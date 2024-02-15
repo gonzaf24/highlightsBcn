@@ -6,39 +6,4 @@
   align-items: flex-start;
   justify-content: flex-start;
   height: 100%;
-
-  @include devices(mobile, small-tablet) {
-    padding-top: 5px;
-    height: 90%;
-  }
-
-  .Overlay {
-    border: 2px solid var(--bs-primary);
-    padding: 20px;
-    position: absolute;
-    bottom: 40px;
-    right: 30px;
-    background: whitesmoke;
-    display: none;
-    border-radius: 3px;
-    height: 300px;
-    width: 200px;
-
-    .Close {
-      position: absolute;
-      padding: 5px;
-      top: -10px;
-      left: -10px;
-      cursor: pointer;
-    }
-  }
-
-  .IsOpen {
-    display: block;
-  }
-}
-
-.LanguageImage {
-  width: 15px;
-  height: 15px;
 }
