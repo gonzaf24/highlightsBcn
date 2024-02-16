@@ -41,7 +41,6 @@ const MapMarker = ({
 
   return (
     <div
-      key={ id }
       className={ mapMarkerClassNames }
       data-testid={ dataTestId }
       id={ id }

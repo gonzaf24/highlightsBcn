@@ -46,6 +46,11 @@ const defaultMapProps = {
     minZoom: 13,
     disableDefaultUI: true,
     clickableIcons: false,
+    keyboardShortcuts: false, // Desactiva el botón de "Keyboard shortcuts"
+    mapTypeControl: false, // Desactiva el control de tipo de mapa
+    streetViewControl: false, // Desactiva el control de vista de calle
+    fullscreenControl: false, // Desactiva el control de pantalla completa
+    zoomControl: false, // Desactiva el control de zoom
     styles: [
       {
         featureType: 'transit.station',
@@ -77,6 +82,12 @@ const barcelonaBounds = {
   south: 41.307, // Latitud mínima
   east: 2.229, // Longitud máxima
   west: 2.034, // Longitud mínima
+};
+
+const isLocationInBarcelona = (latA, lngA, bounds) => {
+  const withinLatBounds = latA >= bounds.south && latA <= bounds.north;
+  const withinLngBounds = lngA >= bounds.west && lngA <= bounds.east;
+  return withinLatBounds && withinLngBounds;
 };
 
 const Map = ({
@@ -169,6 +180,7 @@ const Map = ({
     // Mapeamos los marcadores filtrados
     const markers = filteredMarkers.map(marker => (
       <Marker
+        key={ marker.id }
         googleMapsLink={ marker.googleMapsLink }
         Icon={ marker.Icon }
         id={ marker.id }
@@ -180,22 +192,16 @@ const Map = ({
       />
     ));
 
-    markers.push(<Marker Icon={ IAmHereIcon } lat={ lat } lng={ lng } />);
+    markers.push(<Marker key={ lat + 5555 } Icon={ IAmHereIcon } lat={ lat } lng={ lng } />);
 
     return markers;
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterStates.cat0, filterStates.cat1, filterStates.cat2, filterStates.cat3, filterStates.cat4, zoomSize, lat, lng]);
 
-  const isLocationInBarcelona = (latA, lngA, bounds) => {
-    const withinLatBounds = latA >= bounds.south && latA <= bounds.north;
-    const withinLngBounds = lngA >= bounds.west && lngA <= bounds.east;
-    return withinLatBounds && withinLngBounds;
-  };
-
-  const isInBarcelona = useMemo(() => isLocationInBarcelona(lat, lng, barcelonaBounds), [lat, lng]);
+  const isInBarcelonaBounds = useMemo(() => isLocationInBarcelona(lat, lng, barcelonaBounds), [lat, lng]);
 
   const onCenterMapClick = () => {
-    if (isInBarcelona) {
+    if (isInBarcelonaBounds) {
       setCenter({ lat, lng });
     }
   };
@@ -215,7 +221,7 @@ const Map = ({
     >
       <MapFilters closeDescription={ closeMarker } onFilterChange={ handleFilterChange } />
       <div className={ styles.Container }>
-        <Button className={ styles.MyLocation } isDisabled={ !isInBarcelona } isPrimary onClick={ onCenterMapClick }>
+        <Button className={ styles.MyLocation } isDisabled={ !isInBarcelonaBounds } isPrimary onClick={ onCenterMapClick }>
           CENTER
         </Button>
         <GoogleMapReact
